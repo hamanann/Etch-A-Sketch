@@ -7,7 +7,7 @@ let currentColor = -1;
 let currentMode = "grayscale";
 
 
-function promtGridSize() {
+function promptGridSize() {
     const size = +prompt(`Enter grid size (max size is ${MAX_SIZE}):`, 16);
 
     removeGrid();
@@ -23,7 +23,7 @@ function removeGrid() {
 
 // creates square grid of specified size
 function createGrid(size) {
-    if (isNaN(size)) {
+    if (isNaN(size) || size < 1) {
         size = 16;
     } else if (size > MAX_SIZE){
         size = MAX_SIZE;
@@ -104,7 +104,7 @@ createGrid(16);
 // resize button event listener
 const promptButton = document.querySelector('button.resize');
 promptButton.addEventListener('click', () => {
-    promtGridSize();
+    promptGridSize();
 });
 
 const rainbowButton = document.querySelector('.rainbow');
@@ -114,7 +114,7 @@ rainbowButton.addEventListener('click', (e) => {
 });
 
 const grayscaleButton = document.querySelector('.grayscale');
-grayscaleButton.addEventListener('click', () => {
-    currentMode = "grayscale";
-    addHoverEffect();
-});
+// grayscaleButton.addEventListener('click', () => {
+//     currentMode = "grayscale";
+//     addHoverEffect();
+// });

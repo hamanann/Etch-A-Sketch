@@ -1,7 +1,9 @@
+const MAX_SIZE = 60;
+
 function addDiv(dimensions) {
+    const container = document.querySelector('.container');
     const newDiv = document.createElement('div');
-    const cont = document.querySelector('.container');
-    cont.appendChild(newDiv);
+    container.appendChild(newDiv);
     newDiv.classList.add('square');
     newDiv.style.width = dimensions + '%';
     newDiv.style.height = dimensions + '%';
@@ -16,14 +18,20 @@ function createGrid(size) {
 
 
 function promtGridSize() {
-    const size = +prompt("Enter grid size (max size is 100):", 16);
+    const size = +prompt(`Enter grid size (max size is ${MAX_SIZE}):`, 16);
     if (isNaN(size)) {
         createGrid(16);
-    } else if (size > 100){
-        createGrid(100);
+    } else if (size > MAX_SIZE){
+        createGrid(MAX_SIZE);
     } else {
         createGrid(size);
     }
 }
 
 promtGridSize();
+const squares = document.querySelectorAll('.square');
+squares.forEach(square => {
+    square.addEventListener('mouseover', (e) => {
+        e.target.classList.add('passed');
+    });
+});

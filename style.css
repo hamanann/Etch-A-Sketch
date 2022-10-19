@@ -13,11 +13,14 @@ body {
     height: 802px;
     display: flex;
     flex-wrap: wrap;
-    align-content: flex-start; 
-    border: 1px solid black;   
+    align-content: flex-start;   
 }
 
 .square {
     border: 1px solid black;
     flex: 0 0 auto;
+}
+
+.passed {
+    background-color: blue;
 }

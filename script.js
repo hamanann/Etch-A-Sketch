@@ -15,5 +15,15 @@ function createGrid(size) {
 }
 
 
-const size = +prompt("Enter grid size (max size is 100):", 16);
-createGrid(size);
+function promtGridSize() {
+    const size = +prompt("Enter grid size (max size is 100):", 16);
+    if (isNaN(size)) {
+        createGrid(16);
+    } else if (size > 100){
+        createGrid(100);
+    } else {
+        createGrid(size);
+    }
+}
+
+promtGridSize();

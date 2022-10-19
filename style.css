@@ -5,15 +5,23 @@
 }
 
 body {
-    padding: 32px;
+    padding: 32px 64px;
+    background-color: rgb(224, 255, 245);
+}
+
+header > h1 {
+    text-align: center;
+    font-size: 40px;
+    font-style: italic;
 }
 
 .container {
-    width: 802px;
-    height: 802px;
+    width: 750px;
+    height: 750px;
     display: flex;
     flex-wrap: wrap;
     align-content: flex-start;   
+    background-color: white;
 }
 
 .square {

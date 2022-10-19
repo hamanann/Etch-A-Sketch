@@ -8,10 +8,12 @@ function addDiv(dimensions) {
 }
 
 function createGrid(size) {
-    const dimensionPercentage = Math.floor(100.0 / size);
+    const dimensionPercentage = 100.0 / size;
     for (let i = 0; i < size * size; i++) {
         addDiv(dimensionPercentage);
     }
 }
 
-createGrid(16);
+
+const size = +prompt("Enter grid size (max size is 100):", 16);
+createGrid(size);

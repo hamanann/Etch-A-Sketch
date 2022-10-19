@@ -24,3 +24,9 @@ body {
 .passed {
     background-color: blue;
 }
+
+.prompt {
+    font-size: 24px;
+    margin: 16px 0;
+    padding: 8px 16px;
+}

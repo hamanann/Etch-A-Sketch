@@ -14,11 +14,25 @@ function createGrid(size) {
     for (let i = 0; i < size * size; i++) {
         addDiv(dimensionPercentage);
     }
+    
+    addHoverEffect();
+}
+
+function addHoverEffect() {
+    const squares = document.querySelectorAll('.square');
+        squares.forEach(square => {
+        square.addEventListener('mouseover', (e) => {
+            e.target.classList.add('passed');
+        });
+    });
 }
 
 
 function promtGridSize() {
     const size = +prompt(`Enter grid size (max size is ${MAX_SIZE}):`, 16);
+
+    removeGrid();
+
     if (isNaN(size)) {
         createGrid(16);
     } else if (size > MAX_SIZE){
@@ -28,10 +42,16 @@ function promtGridSize() {
     }
 }
 
-promtGridSize();
-const squares = document.querySelectorAll('.square');
-squares.forEach(square => {
-    square.addEventListener('mouseover', (e) => {
-        e.target.classList.add('passed');
-    });
+function removeGrid() {
+    const container = document.querySelector('.container');
+    while (container.firstChild) {
+        container.removeChild(container.firstChild);
+    }
+}
+
+createGrid(16);
+
+const promptButton = document.querySelector('button.prompt');
+promptButton.addEventListener('click', () => {
+    promtGridSize();
 });
